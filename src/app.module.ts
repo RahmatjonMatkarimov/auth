@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { AuthModule } from './auth/auth.module';
-import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './models/auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
-import { MailModule } from './mail/mail.module';
+import { UserModule } from './models/user/user.module';
 
 @Module({
   imports: [
@@ -25,8 +24,7 @@ import { MailModule } from './mail/mail.module';
       signOptions: { expiresIn: '1h' },
     }),
     AuthModule,
-    AdminModule,
-    MailModule
+    UserModule,
   ],
   controllers: [],
   providers: [],
